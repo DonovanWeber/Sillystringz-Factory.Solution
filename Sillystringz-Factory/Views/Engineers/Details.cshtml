@@ -1,3 +1,40 @@
 @{
   Layout = "_Layout";
 }
+
+@model SillystringzFactory.Models.Engineers
+
+<div class="container">
+  <div class="engineer_details">
+    <h2>Engineers Details</h2>
+    <h2> @Html.DisplayFor(model => model.Name) Details</h2>
+
+    <h3>@Html.DisplayNameFor(model => model.Age):
+    @Html.DisplayFor(model => model.Age)
+    </h3>
+
+    @if(Model.JoinEntities.Count == 0)
+    {
+      <p> This engineer is not repairing any machines at this time.</p>
+    }
+    else
+    {
+      <h4>Machines this engineer is repairing: </h4>
+      @foreach(var join in Model.JoinEntities)
+      {
+        <li>@join.Machine.Name</li>
+
+        @using (Html.BeginForm())
+        {
+          @Html.HiddenFor("joinId", @join.EngineerMachineId)
+          <input type="submit" value="Delete" class="btn btn-primary" />
+        }
+      }
+    }
+
+    <p>@Html.ActionLink("Add a machine", "AddMachine", new { id = Model.EngineerId})</p>
+    <p>@Html.ActionLink("Edit Engineer", "Edit", new { id = Model.EngineerId})</p>
+    <p>@Html.ActionLink("Delete Engineer", "Delete", new {id = Model.EngineerId})</p>
+    <p>@Html.ActionLink("Back", "Index")</p>
+  </div>
+</div>

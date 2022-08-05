@@ -1,3 +1,32 @@
 @{
   Layout = "_Layout";
 }
+
+@model SillystringzFactory.Models.Engineers
+<div class="container">
+  <div id=Header>
+    <h2>Edit</h2>
+
+  </div>
+  <div id="engineer_edit">
+    <h4>Edit this enginee: @Html.DisplayFor(model => model.Name)</h4>
+
+    @using (Html.BeginForm)
+    {
+      @Html.HiddenFor(model => model.EngineerId)
+      <br>
+      @Html.LabelFor(model => model.Name)
+      @Html.EditorFor(model => Model.Name)
+      <br>
+      @Html.LabelFor(model => model.Age)
+      @Html.Editor(model => model.Age)
+      <br>
+      @Html.Label("Select Machine")
+      @Html.DropDownList("MachineId")
+
+      <input type="submit" value="save" />
+    }
+      <br>
+      <p>@Html.ActionLink("Back", "Index")</p>
+  </div>
+</div>
