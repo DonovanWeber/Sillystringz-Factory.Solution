@@ -1,3 +1,26 @@
 @{
   Layout = "_Layout";
 }
+
+@model SillyStringzFactory.Models.Engineer
+
+<div class="container">
+  <div class="Header">
+    <h2>Add a Machine</h2>
+  </div>
+  <div id=engineer_add>
+    <h4>Repair a machine with this Engineer: @Html.DisplayFor(model => model.Name)</h4>
+
+    @using (Html.BeginForm())
+    {
+      @Html.HiddenFor(model => model.EngineerId)
+      <br>
+      @Html.Label("Select A Machine")
+      @Html.DropDownList("MachineId")
+
+      <input type="submit" value="Save" class="btn btn-primary" />
+    }
+    <p>@Html.ActionLink("Back", "Index")</p>
+  </div>
+
+</div>

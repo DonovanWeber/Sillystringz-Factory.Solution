@@ -1,4 +1,25 @@
 @{
   Layout = "_Layout";
 }
+@using SillyStringzFactory.Models;
 
+<div class="container">
+  <div class="Header">
+    <h1>Machines we REPAIR!!</h1>
+  </div>
+  <div id=machine_index>
+    @if(Model.Count == 0)
+    {
+      <h3>No machines have been added for repair.</h3>
+    }
+    <ul>
+      @foreach(Machine machine in Model)
+      {
+        <li>@Html.ActionLink($"{machine.Name}", "Details", new { id = machine.MachineId})</li>
+      }
+    </ul>
+    <br>
+    <p>@Html.ActionLink("Add new machine","Create")</p>
+    <p>@Html.ActionLink("Home", "Index", "Home")</p>
+  </div>
+</div>
