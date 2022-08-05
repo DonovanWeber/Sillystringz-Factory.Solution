@@ -1,3 +1,17 @@
 .Header {
   font-size: large;
 }
+
+body {
+  background-color: rgb(115, 115, 223) ;
+  position: relative;
+}
+
+.Header{
+  font-family: 'Segoe UI', Verdana, ;
+}
+#homepage {
+  background: fixed;
+  background-color: rgba(115, 115, 223, 0.391);
+  font-family: 'Gill Sans';
+}
