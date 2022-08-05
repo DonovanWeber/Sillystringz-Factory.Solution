@@ -2,13 +2,13 @@
   Layout = "_Layout";
 }
 
-@model SillystringzFactory.Models.Engineers
+@model SillystringzFactory.Models.Engineer
 
 <div class="container">
   <div class=Header>
     <h2>Engineers Details</h2>
   </div>
-  <div class="engineer_details">
+  <div id="engineer_details">
     <h2> @Html.DisplayFor(model => model.Name) Details</h2>
 
     <h3>@Html.DisplayNameFor(model => model.Age):
@@ -28,7 +28,7 @@
 
         @using (Html.BeginForm())
         {
-          @Html.HiddenFor("joinId", @join.EngineerMachineId)
+          @Html.Hidden("joinId", @join.EngineerMachineId)
           <input type="submit" value="Delete" class="btn btn-primary" />
         }
       }

@@ -1,3 +1,18 @@
 @{
   Layout = "_Layout";
 }
+@model SillystringzFactory.Models.Machine
+
+<div class="contaier">
+  <div class="Header">
+    <h2>Are you sure you want to remove this machine?</h2>
+  </div>
+  <div id=machine_delete>
+    @Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)
+    @using(Html.BeginForm())
+    {
+      <input type="submit" value="Delete" class="btn btn-warning" />
+    }
+    <p>@Html.ActionLink("Back", "Index")</p>
+  </div>
+</div>

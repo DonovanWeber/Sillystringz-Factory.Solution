@@ -1,3 +1,33 @@
 @{
   Layout = "_Layout";
 }
+@model SillystringzFactory.Models.Machine
+
+<div class="container">
+  <div class="header">
+    <h2> Machine Details</h2>
+    <br>
+    <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+  </div>
+  <div id="machine_details">
+    @if(Model.JoinEntities.Count == 0)
+    {
+      <p>There are no engineers repairing this machine</p>
+    }
+    else
+    {
+      <h4>Engineers repairing this machine: </h4>
+      <ul>
+        @foreach(var join in Model.JoinEntities)
+        {
+          <li>@join.Engineer.Name</li>
+        }
+      </ul>
+    }
+    <h4>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)miles</h4>
+    <h4>@Html.DisplayNameFor(model => model.Age)Running: @Html.DisplayFor(model => model.Age) years</h4>
+    <p>@Html.ActionLink("Back", "Index")</p>
+    <p>@Html.ActionLink("Edit machine", "Edit", new { id = Model.MachineId})</p>
+    <p>@Html.ActionLink("Delete machine", "Delete", new { id = Model.MachineId})</p>
+  </div>
+</div>

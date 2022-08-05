@@ -2,7 +2,7 @@
   Layout = "_Layout";
 }
 
-@model SillystringzFactory.Models.Engineers
+@model SillystringzFactory.Models.Engineer
 <div class="container">
   <div class=Header>
     <h2>Edit</h2>
@@ -10,7 +10,7 @@
   <div id="engineer_edit">
     <h4>Edit this enginee: @Html.DisplayFor(model => model.Name)</h4>
 
-    @using (Html.BeginForm)
+    @using (Html.BeginForm())
     {
       @Html.HiddenFor(model => model.EngineerId)
       <br>
@@ -18,7 +18,7 @@
       @Html.EditorFor(model => Model.Name)
       <br>
       @Html.LabelFor(model => model.Age)
-      @Html.Editor(model => model.Age)
+      @Html.EditorFor(model => model.Age)
       <br>
       @Html.Label("Select Machine")
       @Html.DropDownList("MachineId")

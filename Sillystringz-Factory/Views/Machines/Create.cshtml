@@ -1,3 +1,26 @@
 @{
   Layout = "_Layout";
 }
+
+@model SillystringzFactory.Models.Machine
+<div class="container">
+  <div class="Header">
+    <h3> Add a new machine</h3>
+  </div>
+  <div id="machine_create">
+
+    @using(Html.BeginForm())
+    {
+      @Html.LabelFor(model => model.Name)
+      @Html.TextBoxFor(model => model.Name)
+      <br>
+      @Html.Label("How old is the machine?")
+      @Html.TextBoxFor(model => model.Age)
+      <br>
+      @Html.Label("Select an engineer")
+      @Html.DropDownList("EngineerId")
+      <input type="submit" value="Save" class="btn btn-primary" />
+    }
+    <p>@Html.ActionLink("Show all machines", "Index")</p>
+  </div>
+</div>

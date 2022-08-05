@@ -1,27 +1,29 @@
 @{
   Layout = "_Layout";
 }
-@model SillyStringzFactory.Models.Machine
+@model SillystringzFactory.Models.Machine
 <div class="container">
   <div class="Header">
   <h2>Edit</h2>
   </div>
-  <br>
-  <h4>Edit this machine: @Html.DisplayFor(model => model.Name)</h4>
-  @using(Html.BeginForm())
-  {
-    @Html.HiddenFor(model => model.MachineId)
+  <div id="machine_edit">
     <br>
-    @Html.LabelFor(model => model.Name)
-    @Html.EditorFor(model => model.Name)
-    <br>
-    @Html.LabelFor(model => model.Age)
-    @Html.EditorFor(model => model.Age)
-    <br>
-    @Html.Label("Selec an Engineer")
-    @Html.DropDownList("EngineerId")
-    <br>
-    <input type="submit" value="Save" class="btn btn-primary" />
-  }
-  <p>@Html.ActionLink("Back", "Index")</p>
+    <h4>Edit this machine: @Html.DisplayFor(model => model.Name)</h4>
+    @using(Html.BeginForm())
+    {
+      @Html.HiddenFor(model => model.MachineId)
+      <br>
+      @Html.LabelFor(model => model.Name)
+      @Html.EditorFor(model => model.Name)
+      <br>
+      @Html.LabelFor(model => model.Age)
+      @Html.EditorFor(model => model.Age)
+      <br>
+      @Html.Label("Selec an Engineer")
+      @Html.DropDownList("EngineerId")
+      <br>
+      <input type="submit" value="Save" class="btn btn-primary" />
+    }
+    <p>@Html.ActionLink("Back", "Index")</p>
+  </div>
 </div>

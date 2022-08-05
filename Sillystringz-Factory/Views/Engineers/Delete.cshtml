@@ -10,7 +10,7 @@
   </div>
   <div id="engineer_delete">
     @Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)
-    @using (Html.BeginForm)
+    @using (Html.BeginForm())
     {
       <input type="submit" value="Delete" class="btn btn-warning" />
     }
